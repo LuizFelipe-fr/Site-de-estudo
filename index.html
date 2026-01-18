@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Plataforma de Estudos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Plataforma de Estudos</h1>
+        <p>Prepare-se para Vestibulinho, ENEM e outros exames</p>
+    </header>
+
+    <main>
+
+        <section class="intro">
+            <h2>Escolha como você quer estudar hoje</h2>
+            <p>Treine com simulados, estude com calma ou resolva provas reais.</p>
+        </section>
+
+        <section class="cards">
+            <div class="card">
+                <h2>📚 Simulados</h2>
+                <p>Teste seus conhecimentos com questões objetivas.</p>
+                <a href="simulado.html">Acessar</a>
+            </div>
+
+            <div class="card">
+                <h2>📘 Modo Estudo</h2>
+                <p>
+                    Treine com calma, sem limite de tempo.
+                    Ideal para revisar conteúdos e aprender com os erros.
+                </p>
+                <a href="#">Acessar</a>
+            </div>
+
+            <div class="card">
+                <h2>📝 Provas Anteriores</h2>
+                <p>
+                    Resolva provas reais de vestibulares e simule o dia da prova.
+                </p>
+                <a href="provas-anteriores.html">Acessar</a>
+            </div>
+        </section>
+
+        <section class="cards">
+            <div class="card">
+                <h2>🎯 Simulado Rápido</h2>
+                <p>Questões curtas para treinar conteúdos específicos.</p>
+                <a href="simulado-rapido.html">Acessar</a>
+            </div>
+
+            <div class="card card-insano">
+        <h2>🔥 Modo Insano</h2>
+        <p>Simulado completo, sem pausas. Apenas para os fortes.</p>
+        <a href="modo-insano.html">Entrar</a>
+</div>
+
+
+            <div class="card card-evolucao">
+    <h2>📊 Evolução</h2>
+
+    <p>Simulados feitos: <strong><span id="evSimulados">0</span></strong></p>
+    <p>Acertos: <strong><span id="evAcertos">0</span></strong></p>
+    <p>Erros: <strong><span id="evErros">0</span></strong></p>
+    <p>Aproveitamento: <strong><span id="evPercentual">0%</span></strong></p>
+
+    <div class="barra-evolucao">
+        <div id="evBarra"></div>
+    </div>
+    <button class="btn-reset" onclick="resetarEvolucao()">Resetar evolução</button>
+
+</div>
+
+<script src="js/evolucao.js"></script>
+
+
+        </section>
+
+        <section class="intro">
+            <h2>Sobre a plataforma</h2>
+            <p>
+                Projeto acadêmico desenvolvido com HTML, CSS e JavaScript puro,
+                com foco em praticar lógica de programação, manipulação do DOM
+                e simulação de ambientes reais de prova.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Projeto acadêmico - JavaScript</p>
+    </footer>
+
+</body>
+</html>

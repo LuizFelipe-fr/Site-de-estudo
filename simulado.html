@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulado</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="btn-sair">← Voltar</a>
+    <h1>Simulado</h1>
+    <p>Responda as questões e veja seu desempenho</p>
+</header>
+
+<main>
+
+    <div class="escolha-simulado" id="escolhaSimulado">
+        <h2>Escolha a quantidade de questões</h2>
+
+        <button class="btn-qtd" data-qtd="40">40 Questões</button>
+        <button class="btn-qtd" data-qtd="80">80 Questões</button>
+        <button class="btn-qtd" data-qtd="100">100 Questões</button>
+    </div>
+
+    <div class="card card-simulado" id="quiz-container" style="display: none;">
+        
+        <p id="tempo" class="tempo">⏱️ Tempo: 00:00</p>
+
+        <div class="progresso-container">
+            <div id="barraProgresso"></div>
+        </div>
+
+        <p id="contadorQuestoes"></p>
+
+        <h2 id="pergunta"></h2>
+
+        <div id="opcoes"></div> 
+
+        <button id="proximo">Próxima</button>
+    </div>
+
+</main>
+
+<script src="js/simulado.js"></script>
+</body>
+</html>
