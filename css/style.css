@@ -1,0 +1,491 @@
+/* ===== RESET GLOBAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f4f6f8;
+    color: #333;
+}
+
+/* ===== HEADER ===== */
+header {
+    background-color: #1e40af;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+/* ===== MAIN (HUB) ===== */
+main {
+    padding: 40px;
+}
+
+/* ===== SEÇÃO INTRO (HUB) ===== */
+.intro {
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+}
+
+.intro h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    color: #1e40af;
+}
+
+.intro p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* ===== CARDS (GERAL / HUB) ===== */
+.cards {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: white;
+    padding: 25px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.card h2 {
+    margin-bottom: 15px;
+    color: #1f3fbf;
+}
+
+.card p {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.card a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #1e40af;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+.card a:hover {
+    background-color: #1e3a8a;
+}
+
+/* ===== CARD DO SIMULADO ===== */
+.card-simulado {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ===== OPÇÕES DO SIMULADO ===== */
+#opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+#opcoes button {
+    text-align: center;
+    padding: 12px 16px;
+    font-size: 24px;
+    border-radius: 8px;
+    border: 2px solid #1e40af;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#opcoes button:hover {
+    background-color: #e0e7ff;
+}
+
+#opcoes button.selecionado {
+    background-color: #1e40af;
+    color: white;
+    transform: scale(1.02);
+}
+
+/* ===== BOTÃO PRÓXIMO ===== */
+#proximo {
+    margin-top: 30px;
+    padding: 14px 28px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #16a34a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 15px rgba(22, 163, 74, 0.3);
+}
+
+#proximo:hover:not(:disabled) {
+    background-color: #15803d;
+    transform: translateY(-2px);
+}
+
+#proximo:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* ===== BARRA DE PROGRESSO ===== */
+.progresso-container {
+    width: 100%;
+    max-width: 900px;
+    height: 10px;
+    background-color: #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0 auto 15px auto;
+}
+
+#barraProgresso {
+    height: 100%;
+    width: 0%;
+    background-color: #22c55e;
+    transition: width 0.3s ease;
+}
+
+#contadorQuestoes {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* ===== PÁGINA PROVAS ANTERIORES ===== */
+.topo {
+    background-color: #1f3fbf;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.topo h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.topo p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.provas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 360px));
+    gap: 40px;
+    justify-content: center;
+}
+
+
+.prova-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f7ff;
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.prova-item a {
+    background-color: #1f3fbf;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* ===== BOTÕES DE VOLTAR ===== */
+.btn-voltar,
+.btn-sair {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-voltar:hover,
+.btn-sair:hover {
+    background-color: #fff;
+    color: #1f3fbf;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #e5e7eb;
+    margin-top: 40px;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 600px) {
+    .provas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .topo h1 {
+        font-size: 26px;
+    }
+
+    .card {
+        max-width: 100%;
+    }
+}
+
+/* ===== SIMULADO RÁPIDO ===== */
+
+.simulado-rapido {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.simulado-rapido h2 {
+    color: #dc2626;
+    margin-bottom: 15px;
+}
+
+.simulado-rapido p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.simulado-rapido #opcoes button {
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+
+.simulado-rapido .progresso-container {
+    height: 6px;
+    margin-bottom: 10px;
+}
+
+
+.simulado-rapido #proximo {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 16px;
+}
+
+#refazer {
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#refazer:hover {
+    background-color: #27ae60;
+    transform: scale(1.05);
+}
+
+#refazer:active {
+    transform: scale(0.98);
+}
+
+/* ================= ESCOLHA DE QUANTIDADE ================= */
+
+.escolha-simulado {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #013699;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 17, 255, 0.658);
+}
+
+.escolha-simulado h2 {
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 1.4rem;
+}
+
+/* ================= BOTÕES ================= */
+
+.btn-qtd {
+    width: 100%;
+    padding: 14px 0;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #4f46e5, #3b82f6);
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+
+.btn-qtd:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.6);
+    background: linear-gradient(135deg, #4338ca, #2563eb);
+}
+
+
+.btn-qtd:active {
+    transform: scale(0.98);
+}
+
+
+.btn-qtd:focus {
+    outline: 2px solid #93c5fd;
+    outline-offset: 3px;
+}
+
+
+@media (max-width: 480px) {
+    .escolha-simulado {
+        margin: 20px;
+        padding: 25px;
+    }
+
+    .btn-qtd {
+        font-size: 1rem;
+    }
+}
+
+
+/*=== relogio ===*/
+
+.tempo {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+
+/* === Evolução ===*/
+
+.card-evolucao {
+    text-align: left;
+}
+
+.barra-evolucao {
+    width: 100%;
+    height: 12px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+#evBarra {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #4caf50, #2e7d32);
+    transition: width 0.4s ease;
+}
+
+/* === botao reset === */
+
+.btn-reset {
+    margin-top: 15px;
+    padding: 12px 18px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-reset:hover {
+    background-color: #c0392b;
+    transform: scale(1.03);
+}
+
+.btn-reset:active {
+    transform: scale(0.98);
+}
+
+
+#voltarHome {
+    margin-top: 25px;
+    padding: 14px 28px;
+
+    background: linear-gradient(135deg, #ff3c00, #ff0000);
+    color: #fff;
+
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+#voltarHome:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+}
+
+
+#voltarHome:active {
+    transform: scale(0.97);
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.9);
+}
+
