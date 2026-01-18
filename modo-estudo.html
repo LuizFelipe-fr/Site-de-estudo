@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Modo Estudo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <a href="index.html" class="btn-sair">← Voltar</a>
+</head>
+<body>
+
+<header>
+    <h1>📘 Modo Estudo</h1>
+    <p>Aprenda sem pressão. Errou? Aqui você entende.</p>
+</header>
+
+<main>
+
+    <!-- ESCOLHA DE MATÉRIA -->
+    <section id="escolhaMateria" class="cards">
+        <button class="card" onclick="iniciarEstudo('matematica')">📐 Matemática</button>
+        <button class="card" onclick="iniciarEstudo('portugues')">📖 Português</button>
+        <button class="card" onclick="iniciarEstudo('geral')">🌍 Conhecimentos Gerais</button>
+    </section>
+
+    <!-- ÁREA DO ESTUDO -->
+    <section id="estudoContainer" class="estudo" style="display:none;">
+        <h2 id="pergunta"></h2>
+
+        <div id="opcoes"></div>
+
+        <div id="feedback"></div>
+
+        <button id="btnProxima" onclick="proximaPergunta()" disabled>
+            Próxima questão
+        </button>
+
+       
+    </section>
+
+</main>
+
+<script src="js/modo-estudo.js"></script>
+</body>
+</html>
