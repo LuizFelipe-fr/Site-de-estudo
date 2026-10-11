@@ -173,6 +173,11 @@ function criarQuiz(config) {
         el.resultado.innerHTML = montarResultado(acertos, total, tempoEsgotado);
         el.resultado.scrollIntoView({ behavior: "smooth", block: "start" });
         conectarBotoesResultado();
+
+        const percentual = total > 0 ? Math.round((acertos / total) * 100) : 0;
+        if (percentual >= 70 && typeof window.dispararConfete === "function") {
+            window.dispararConfete();
+        }
     }
 
     function montarResultado(acertos, total, tempoEsgotado) {

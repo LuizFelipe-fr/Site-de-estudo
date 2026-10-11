@@ -25,6 +25,7 @@
     </nav>
 
     <header class="hero">
+        <canvas class="hero__particulas" aria-hidden="true"></canvas>
         <span class="hero__selo">Vestibulinho • ENEM • Concursos</span>
         <h1>Estude com foco e<br>acompanhe sua evolução</h1>
         <p>Treine com simulados cronometrados, revise seus erros com explicações e resolva provas reais no seu ritmo.</p>
@@ -41,36 +42,36 @@
                 <p>Cada modo foi pensado para um momento diferente da sua preparação.</p>
             </div>
 
-            <div class="grade">
-                <a class="card card--link" href="simulado.html" data-reveal="0">
+            <div class="bento">
+                <a class="card card--link bento__item--grande" href="simulado.html" data-reveal-fade="0">
                     <div class="card__icone">📚</div>
                     <h3>Simulados</h3>
-                    <p>Monte provas de 10, 20 ou 30 questões com tempo cronometrado e veja seu desempenho.</p>
-                    <span class="card__acao">Começar →</span>
+                    <p>Monte provas de 10, 20 ou 30 questões sorteadas de todas as matérias, com tempo cronometrado e revisão completa ao final.</p>
+                    <span class="card__acao">Começar agora →</span>
                 </a>
 
-                <a class="card card--link" href="modo-estudo.html" data-reveal="80">
+                <a class="card card--link bento__item" href="modo-estudo.html" data-reveal-fade="90">
                     <div class="card__icone">📘</div>
                     <h3>Modo Estudo</h3>
-                    <p>Treine sem pressa, por matéria, com correção na hora e explicação de cada resposta.</p>
+                    <p>Por matéria, com correção na hora e explicação de cada resposta.</p>
                     <span class="card__acao">Começar →</span>
                 </a>
 
-                <a class="card card--link" href="provas-anteriores.html" data-reveal="160">
+                <a class="card card--link bento__item" href="simulado-rapido.html" data-reveal-fade="150">
+                    <div class="card__icone">🎯</div>
+                    <h3>Simulado Rápido</h3>
+                    <p>Dez questões em cinco minutos para o treino do dia a dia.</p>
+                    <span class="card__acao">Começar →</span>
+                </a>
+
+                <a class="card card--link bento__item--largo" href="provas-anteriores.html" data-reveal-fade="0">
                     <div class="card__icone">📝</div>
                     <h3>Provas Anteriores</h3>
                     <p>Baixe provas reais de ETEC e ENEM para simular o dia da prova de verdade.</p>
                     <span class="card__acao">Acessar →</span>
                 </a>
 
-                <a class="card card--link" href="simulado-rapido.html" data-reveal="0">
-                    <div class="card__icone">🎯</div>
-                    <h3>Simulado Rápido</h3>
-                    <p>Dez questões variadas em cinco minutos para um treino rápido do dia a dia.</p>
-                    <span class="card__acao">Começar →</span>
-                </a>
-
-                <a class="card card--link card--destaque" href="modo-insano.html" data-reveal="80">
+                <a class="card card--link card--destaque bento__item--largo" href="modo-insano.html" data-reveal-fade="90">
                     <div class="card__icone">🔥</div>
                     <h3>Modo Insano</h3>
                     <p>Tempo curto, sem voltar atrás. Um desafio direto para testar seu limite.</p>
