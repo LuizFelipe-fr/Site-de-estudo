@@ -99,7 +99,7 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    z-index: -2;
+    z-index: -3;
     background:
         radial-gradient(42vw 42vw at 12% -8%, rgba(99, 102, 241, 0.22), transparent 60%),
         radial-gradient(38vw 38vw at 98% 8%, rgba(168, 85, 247, 0.2), transparent 60%),
@@ -111,7 +111,7 @@ body::after {
     content: "";
     position: fixed;
     inset: 0;
-    z-index: -1;
+    z-index: -2;
     pointer-events: none;
     opacity: 0.4;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
@@ -130,7 +130,7 @@ body::after {
     left: 0;
     width: 420px;
     height: 420px;
-    z-index: 0;
+    z-index: -1;
     border-radius: 50%;
     pointer-events: none;
     transform: translate(-50%, -50%);
@@ -396,18 +396,11 @@ a {
 
 /* ===== LAYOUT ===== */
 main {
-    position: relative;
-    z-index: 1;
     flex: 1;
     width: 100%;
     max-width: var(--largura);
     margin: 0 auto;
     padding: 56px 24px;
-}
-
-footer {
-    position: relative;
-    z-index: 1;
 }
 
 .secao {
