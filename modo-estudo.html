@@ -9,31 +9,36 @@
 </head>
 <body>
 
+    <div class="scroll-progresso"></div>
+
     <header class="hero hero--pagina">
         <a href="index.html" class="btn--voltar">← Voltar</a>
         <h1>📘 Modo Estudo</h1>
         <p>Aprenda sem pressão. Errou? Aqui você entende o porquê.</p>
+        <svg class="hero__onda" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+            <path fill="currentColor" d="M0,40 C240,70 480,10 720,25 C960,40 1200,70 1440,35 L1440,60 L0,60 Z"></path>
+        </svg>
     </header>
 
     <main>
 
         <section class="selecao" id="selecao">
-            <div class="secao-titulo">
-                <h2>Escolha uma matéria para treinar</h2>
+            <div class="secao-titulo" data-reveal>
+                <h2>Escolha uma <span class="texto-gradiente">matéria</span> para treinar</h2>
                 <p>Correção na hora, com explicação em cada questão.</p>
             </div>
 
             <div class="selecao__opcoes">
-                <button class="opcao-grande" data-materia="matematica" type="button">
+                <button class="opcao-grande" data-materia="matematica" type="button" data-reveal="0">
                     <span>📐</span> Matemática
                 </button>
-                <button class="opcao-grande" data-materia="portugues" type="button">
+                <button class="opcao-grande" data-materia="portugues" type="button" data-reveal="70">
                     <span>📖</span> Português
                 </button>
-                <button class="opcao-grande" data-materia="ciencias" type="button">
+                <button class="opcao-grande" data-materia="ciencias" type="button" data-reveal="140">
                     <span>🔬</span> Ciências
                 </button>
-                <button class="opcao-grande" data-materia="geral" type="button">
+                <button class="opcao-grande" data-materia="geral" type="button" data-reveal="210">
                     <span>🌍</span> Conhecimentos Gerais
                 </button>
             </div>
@@ -65,6 +70,7 @@
         <p>Projeto acadêmico desenvolvido em HTML, CSS e JavaScript — UNINTER</p>
     </footer>
 
+    <script src="js/animacoes.js"></script>
     <script src="js/banco-questoes.js"></script>
     <script src="js/progresso.js"></script>
     <script src="js/quiz.js"></script>

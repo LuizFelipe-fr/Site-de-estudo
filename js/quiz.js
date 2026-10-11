@@ -6,6 +6,12 @@ function formatarTempo(segundos) {
     return `${String(minutos).padStart(2, "0")}:${String(resto).padStart(2, "0")}`;
 }
 
+function reanimar(elemento) {
+    elemento.classList.remove("anima-entrada");
+    void elemento.offsetWidth;
+    elemento.classList.add("anima-entrada");
+}
+
 function criarQuiz(config) {
     const el = {
         quiz: document.getElementById("quiz"),
@@ -94,6 +100,9 @@ function criarQuiz(config) {
 
         el.contador.textContent = `Questão ${indice + 1} de ${questoes.length}`;
         el.barra.style.width = `${(indice / questoes.length) * 100}%`;
+
+        reanimar(el.pergunta);
+        reanimar(el.opcoes);
 
         questao.opcoes.forEach((texto, i) => {
             const botao = document.createElement("button");

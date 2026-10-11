@@ -9,6 +9,8 @@
 </head>
 <body>
 
+    <div class="scroll-progresso"></div>
+
     <nav class="nav">
         <a href="index.html" class="nav__marca">
             <span class="nav__logo">🎓</span>
@@ -16,6 +18,7 @@
         </a>
         <div class="nav__acoes">
             <a href="simulado.html" class="nav__link">Simulados</a>
+            <a href="modo-estudo.html" class="nav__link">Estudar</a>
             <a href="provas-anteriores.html" class="nav__link">Provas</a>
             <button class="toggle-tema" data-toggle-tema type="button">🌙</button>
         </div>
@@ -23,48 +26,51 @@
 
     <header class="hero">
         <span class="hero__selo">Vestibulinho • ENEM • Concursos</span>
-        <h1>Estude com foco e acompanhe sua evolução</h1>
+        <h1>Estude com foco e<br>acompanhe sua evolução</h1>
         <p>Treine com simulados cronometrados, revise seus erros com explicações e resolva provas reais no seu ritmo.</p>
+        <svg class="hero__onda" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+            <path fill="currentColor" d="M0,40 C240,70 480,10 720,25 C960,40 1200,70 1440,35 L1440,60 L0,60 Z"></path>
+        </svg>
     </header>
 
     <main>
 
-        <section>
-            <div class="secao-titulo">
-                <h2>Escolha como estudar hoje</h2>
+        <section class="secao">
+            <div class="secao-titulo" data-reveal>
+                <h2>Escolha como <span class="texto-gradiente">estudar hoje</span></h2>
                 <p>Cada modo foi pensado para um momento diferente da sua preparação.</p>
             </div>
 
             <div class="grade">
-                <a class="card card--link" href="simulado.html">
+                <a class="card card--link" href="simulado.html" data-reveal="0">
                     <div class="card__icone">📚</div>
                     <h3>Simulados</h3>
                     <p>Monte provas de 10, 20 ou 30 questões com tempo cronometrado e veja seu desempenho.</p>
                     <span class="card__acao">Começar →</span>
                 </a>
 
-                <a class="card card--link" href="modo-estudo.html">
+                <a class="card card--link" href="modo-estudo.html" data-reveal="80">
                     <div class="card__icone">📘</div>
                     <h3>Modo Estudo</h3>
                     <p>Treine sem pressa, por matéria, com correção na hora e explicação de cada resposta.</p>
                     <span class="card__acao">Começar →</span>
                 </a>
 
-                <a class="card card--link" href="provas-anteriores.html">
+                <a class="card card--link" href="provas-anteriores.html" data-reveal="160">
                     <div class="card__icone">📝</div>
                     <h3>Provas Anteriores</h3>
                     <p>Baixe provas reais de ETEC e ENEM para simular o dia da prova de verdade.</p>
                     <span class="card__acao">Acessar →</span>
                 </a>
 
-                <a class="card card--link" href="simulado-rapido.html">
+                <a class="card card--link" href="simulado-rapido.html" data-reveal="0">
                     <div class="card__icone">🎯</div>
                     <h3>Simulado Rápido</h3>
                     <p>Dez questões variadas em cinco minutos para um treino rápido do dia a dia.</p>
                     <span class="card__acao">Começar →</span>
                 </a>
 
-                <a class="card card--link card--destaque" href="modo-insano.html">
+                <a class="card card--link card--destaque" href="modo-insano.html" data-reveal="80">
                     <div class="card__icone">🔥</div>
                     <h3>Modo Insano</h3>
                     <p>Tempo curto, sem voltar atrás. Um desafio direto para testar seu limite.</p>
@@ -73,13 +79,13 @@
             </div>
         </section>
 
-        <section style="margin-top: 48px;">
-            <div class="secao-titulo">
-                <h2>Sua evolução</h2>
+        <section class="secao">
+            <div class="secao-titulo" data-reveal>
+                <h2>Sua <span class="texto-gradiente">evolução</span></h2>
                 <p>Os resultados dos seus simulados ficam salvos neste navegador.</p>
             </div>
 
-            <div class="evolucao">
+            <div class="evolucao" data-reveal>
                 <div class="anel" id="anelEvolucao">
                     <div class="anel__texto">
                         <strong id="evPercentual">0%</strong>
@@ -106,7 +112,7 @@
                             <span>Melhor</span>
                         </div>
                     </div>
-                    <button class="btn btn--fantasma" id="btnResetar" type="button">Resetar evolução</button>
+                    <button class="btn btn--perigo" id="btnResetar" type="button">Resetar evolução</button>
                 </div>
             </div>
         </section>
@@ -117,6 +123,7 @@
         <p>Projeto acadêmico desenvolvido em HTML, CSS e JavaScript — <a href="https://github.com/">UNINTER</a></p>
     </footer>
 
+    <script src="js/animacoes.js"></script>
     <script src="js/progresso.js"></script>
     <script src="js/evolucao.js"></script>
 </body>
