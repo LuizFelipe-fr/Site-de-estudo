@@ -2,43 +2,91 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modo Estudo</title>
     <link rel="stylesheet" href="css/style.css">
-    <a href="index.html" class="btn-sair">← Voltar</a>
+    <script src="js/tema.js"></script>
 </head>
 <body>
 
-<header>
-    <h1>📘 Modo Estudo</h1>
-    <p>Aprenda sem pressão. Errou? Aqui você entende.</p>
-</header>
+    <header class="hero hero--pagina">
+        <a href="index.html" class="btn--voltar">← Voltar</a>
+        <h1>📘 Modo Estudo</h1>
+        <p>Aprenda sem pressão. Errou? Aqui você entende o porquê.</p>
+    </header>
 
-<main>
+    <main>
 
-    <!-- ESCOLHA DE MATÉRIA -->
-    <section id="escolhaMateria" class="cards">
-        <button class="card" onclick="iniciarEstudo('matematica')">📐 Matemática</button>
-        <button class="card" onclick="iniciarEstudo('portugues')">📖 Português</button>
-        <button class="card" onclick="iniciarEstudo('geral')">🌍 Conhecimentos Gerais</button>
-    </section>
+        <section class="selecao" id="selecao">
+            <div class="secao-titulo">
+                <h2>Escolha uma matéria para treinar</h2>
+                <p>Correção na hora, com explicação em cada questão.</p>
+            </div>
 
-    <!-- ÁREA DO ESTUDO -->
-    <section id="estudoContainer" class="estudo" style="display:none;">
-        <h2 id="pergunta"></h2>
+            <div class="selecao__opcoes">
+                <button class="opcao-grande" data-materia="matematica" type="button">
+                    <span>📐</span> Matemática
+                </button>
+                <button class="opcao-grande" data-materia="portugues" type="button">
+                    <span>📖</span> Português
+                </button>
+                <button class="opcao-grande" data-materia="ciencias" type="button">
+                    <span>🔬</span> Ciências
+                </button>
+                <button class="opcao-grande" data-materia="geral" type="button">
+                    <span>🌍</span> Conhecimentos Gerais
+                </button>
+            </div>
+        </section>
 
-        <div id="opcoes"></div>
+        <section class="quiz oculto" id="quiz">
+            <div class="quiz__topo">
+                <span class="quiz__contador" id="contador"></span>
+            </div>
 
-        <div id="feedback"></div>
+            <div class="barra-progresso">
+                <div class="barra-progresso__preenchida" id="barra"></div>
+            </div>
 
-        <button id="btnProxima" onclick="proximaPergunta()" disabled>
-            Próxima questão
-        </button>
+            <h2 class="quiz__pergunta" id="pergunta"></h2>
+            <div class="opcoes" id="opcoes"></div>
+            <div class="feedback" id="feedback"></div>
 
-       
-    </section>
+            <div class="quiz__rodape">
+                <button class="btn btn--primario" id="proximo" type="button" disabled>Próxima</button>
+            </div>
+        </section>
 
-</main>
+        <section class="quiz resultado oculto" id="resultado"></section>
 
-<script src="js/modo-estudo.js"></script>
+    </main>
+
+    <footer>
+        <p>Projeto acadêmico desenvolvido em HTML, CSS e JavaScript — UNINTER</p>
+    </footer>
+
+    <script src="js/banco-questoes.js"></script>
+    <script src="js/progresso.js"></script>
+    <script src="js/quiz.js"></script>
+    <script>
+        const selecao = document.getElementById("selecao");
+        let materiaAtual = null;
+
+        const quiz = criarQuiz({
+            feedbackImediato: true,
+            salvar: false,
+            permitirRefazer: true,
+            aoRefazer: () => embaralhar(questoesPorMateria(materiaAtual)),
+            aoSelecionar: () => selecao.classList.remove("oculto")
+        });
+
+        document.querySelectorAll("[data-materia]").forEach(botao => {
+            botao.addEventListener("click", () => {
+                materiaAtual = botao.dataset.materia;
+                selecao.classList.add("oculto");
+                quiz.iniciar(embaralhar(questoesPorMateria(materiaAtual)));
+            });
+        });
+    </script>
 </body>
 </html>

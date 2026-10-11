@@ -2,97 +2,122 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plataforma de Estudos</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/tema.js"></script>
 </head>
 <body>
 
-    <header>
-        <h1>Plataforma de Estudos</h1>
-        <p>Prepare-se para Vestibulinho, ENEM e outros exames</p>
+    <nav class="nav">
+        <a href="index.html" class="nav__marca">
+            <span class="nav__logo">🎓</span>
+            Plataforma de Estudos
+        </a>
+        <div class="nav__acoes">
+            <a href="simulado.html" class="nav__link">Simulados</a>
+            <a href="provas-anteriores.html" class="nav__link">Provas</a>
+            <button class="toggle-tema" data-toggle-tema type="button">🌙</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <span class="hero__selo">Vestibulinho • ENEM • Concursos</span>
+        <h1>Estude com foco e acompanhe sua evolução</h1>
+        <p>Treine com simulados cronometrados, revise seus erros com explicações e resolva provas reais no seu ritmo.</p>
     </header>
 
     <main>
 
-        <section class="intro">
-            <h2>Escolha como você quer estudar hoje</h2>
-            <p>Treine com simulados, estude com calma ou resolva provas reais.</p>
+        <section>
+            <div class="secao-titulo">
+                <h2>Escolha como estudar hoje</h2>
+                <p>Cada modo foi pensado para um momento diferente da sua preparação.</p>
+            </div>
+
+            <div class="grade">
+                <a class="card card--link" href="simulado.html">
+                    <div class="card__icone">📚</div>
+                    <h3>Simulados</h3>
+                    <p>Monte provas de 10, 20 ou 30 questões com tempo cronometrado e veja seu desempenho.</p>
+                    <span class="card__acao">Começar →</span>
+                </a>
+
+                <a class="card card--link" href="modo-estudo.html">
+                    <div class="card__icone">📘</div>
+                    <h3>Modo Estudo</h3>
+                    <p>Treine sem pressa, por matéria, com correção na hora e explicação de cada resposta.</p>
+                    <span class="card__acao">Começar →</span>
+                </a>
+
+                <a class="card card--link" href="provas-anteriores.html">
+                    <div class="card__icone">📝</div>
+                    <h3>Provas Anteriores</h3>
+                    <p>Baixe provas reais de ETEC e ENEM para simular o dia da prova de verdade.</p>
+                    <span class="card__acao">Acessar →</span>
+                </a>
+
+                <a class="card card--link" href="simulado-rapido.html">
+                    <div class="card__icone">🎯</div>
+                    <h3>Simulado Rápido</h3>
+                    <p>Dez questões variadas em cinco minutos para um treino rápido do dia a dia.</p>
+                    <span class="card__acao">Começar →</span>
+                </a>
+
+                <a class="card card--link card--destaque" href="modo-insano.html">
+                    <div class="card__icone">🔥</div>
+                    <h3>Modo Insano</h3>
+                    <p>Tempo curto, sem voltar atrás. Um desafio direto para testar seu limite.</p>
+                    <span class="card__acao">Entrar →</span>
+                </a>
+            </div>
         </section>
 
-        <section class="cards">
-            <div class="card">
-                <h2>📚 Simulados</h2>
-                <p>Teste seus conhecimentos com questões objetivas.</p>
-                <a href="simulado.html">Acessar</a>
+        <section style="margin-top: 48px;">
+            <div class="secao-titulo">
+                <h2>Sua evolução</h2>
+                <p>Os resultados dos seus simulados ficam salvos neste navegador.</p>
             </div>
 
-            <div class="card">
-                <h2>📘 Modo Estudo</h2>
-                <p>
-                    Treine com calma, sem limite de tempo.
-                    Ideal para revisar conteúdos e aprender com os erros.
-                </p>
-                <a href="modo-estudo.html">Acessar</a>
+            <div class="evolucao">
+                <div class="anel" id="anelEvolucao">
+                    <div class="anel__texto">
+                        <strong id="evPercentual">0%</strong>
+                        <span>aproveitamento</span>
+                    </div>
+                </div>
+
+                <div class="evolucao__dados">
+                    <div class="estatisticas">
+                        <div class="estatistica">
+                            <strong id="evSimulados">0</strong>
+                            <span>Simulados</span>
+                        </div>
+                        <div class="estatistica estatistica--sucesso">
+                            <strong id="evAcertos">0</strong>
+                            <span>Acertos</span>
+                        </div>
+                        <div class="estatistica estatistica--erro">
+                            <strong id="evErros">0</strong>
+                            <span>Erros</span>
+                        </div>
+                        <div class="estatistica">
+                            <strong id="evMelhor">0%</strong>
+                            <span>Melhor</span>
+                        </div>
+                    </div>
+                    <button class="btn btn--fantasma" id="btnResetar" type="button">Resetar evolução</button>
+                </div>
             </div>
-
-            <div class="card">
-                <h2>📝 Provas Anteriores</h2>
-                <p>
-                    Resolva provas reais de vestibulares e simule o dia da prova.
-                </p>
-                <a href="provas-anteriores.html">Acessar</a>
-            </div>
-        </section>
-
-        <section class="cards">
-            <div class="card">
-                <h2>🎯 Simulado Rápido</h2>
-                <p>Questões curtas para treinar conteúdos específicos.</p>
-                <a href="simulado-rapido.html">Acessar</a>
-            </div>
-
-            <div class="card card-insano">
-        <h2>🔥 Modo Insano</h2>
-        <p>Simulado completo, sem pausas. Apenas para os fortes.</p>
-        <a href="modo-insano.html">Entrar</a>
-</div>
-
-
-            <div class="card card-evolucao">
-    <h2>📊 Evolução</h2>
-
-    <p>Simulados feitos: <strong><span id="evSimulados">0</span></strong></p>
-    <p>Acertos: <strong><span id="evAcertos">0</span></strong></p>
-    <p>Erros: <strong><span id="evErros">0</span></strong></p>
-    <p>Aproveitamento: <strong><span id="evPercentual">0%</span></strong></p>
-
-    <div class="barra-evolucao">
-        <div id="evBarra"></div>
-    </div>
-    <button class="btn-reset" onclick="resetarEvolucao()">Resetar evolução</button>
-
-</div>
-
-<script src="js/evolucao.js"></script>
-
-
-        </section>
-
-        <section class="intro">
-            <h2>Sobre a plataforma</h2>
-            <p>
-                Projeto acadêmico desenvolvido com HTML, CSS e JavaScript puro,
-                com foco em praticar lógica de programação, manipulação do DOM
-                e simulação de ambientes reais de prova.
-            </p>
         </section>
 
     </main>
 
     <footer>
-        <p>Projeto acadêmico - JavaScript</p>
+        <p>Projeto acadêmico desenvolvido em HTML, CSS e JavaScript — <a href="https://github.com/">UNINTER</a></p>
     </footer>
 
+    <script src="js/progresso.js"></script>
+    <script src="js/evolucao.js"></script>
 </body>
 </html>
-

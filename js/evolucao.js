@@ -1,28 +1,23 @@
-function carregarEvolucao() {
-    const dados = JSON.parse(localStorage.getItem("evolucao")) || {
-        simulados: 0,
-        acertos: 0,
-        erros: 0
-    };
-
-    const total = dados.acertos + dados.erros;
-    const percentual = total > 0 ? Math.round((dados.acertos / total) * 100) : 0;
+function renderizarEvolucao() {
+    const dados = obterProgresso();
+    const aproveitamento = aproveitamentoGeral();
 
     document.getElementById("evSimulados").textContent = dados.simulados;
     document.getElementById("evAcertos").textContent = dados.acertos;
     document.getElementById("evErros").textContent = dados.erros;
-    document.getElementById("evPercentual").textContent = percentual + "%";
-    document.getElementById("evBarra").style.width = percentual + "%";
+    document.getElementById("evPercentual").textContent = aproveitamento + "%";
+    document.getElementById("evMelhor").textContent = dados.melhorAproveitamento + "%";
+    document.getElementById("anelEvolucao").style.setProperty("--valor", aproveitamento);
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    renderizarEvolucao();
 
-function resetarEvolucao() {
-    console.log("Reset clicado");
+    document.getElementById("btnResetar").addEventListener("click", () => {
+        const confirmado = confirm("Tem certeza que deseja apagar toda a sua evolução?");
+        if (!confirmado) return;
 
-    localStorage.removeItem("evolucao");
-
-    carregarEvolucao();
-
-}
-
-document.addEventListener("DOMContentLoaded", carregarEvolucao);
+        resetarProgresso();
+        renderizarEvolucao();
+    });
+});

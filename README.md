@@ -1,62 +1,69 @@
-#  Site de Estudo
+# Plataforma de Estudos
 
-##  Sobre o projeto
+Plataforma web para preparação de vestibulares e concursos (Vestibulinho da ETEC, ENEM e outros), com simulados cronometrados, estudo por matéria e acompanhamento de evolução.
 
-O Site de Estudo é uma plataforma desenvolvida para auxiliar na organização e aprendizado de conteúdos estudados, servindo como um ambiente simples e funcional para anotações e revisão de material.
+Projeto acadêmico desenvolvido na **UNINTER**, com foco em prática de desenvolvimento web usando HTML, CSS e JavaScript puro.
 
-Este projeto foi desenvolvido como parte de um trabalho acadêmico da **UNINTER**, com foco em prática de desenvolvimento web.
+## Funcionalidades
 
-##  Funcionalidades
+- **Simulado** — monte provas de 10, 20 ou 30 questões sorteadas de todas as matérias, com tempo cronometrado e revisão completa ao final.
+- **Simulado Rápido** — dez questões variadas em cinco minutos para o treino do dia a dia.
+- **Modo Insano** — todas as questões em sequência, com pouco tempo por questão e sem voltar atrás.
+- **Modo Estudo** — treino por matéria, sem tempo, com correção imediata e explicação de cada resposta.
+- **Provas Anteriores** — download de provas reais de ETEC e ENEM.
+- **Evolução** — número de simulados, acertos, erros, aproveitamento geral e melhor resultado, salvos no navegador.
+- **Tema claro e escuro**, com preferência lembrada entre as visitas.
 
-* Criar e organizar tarefas ou conteúdos de estudo
-* Adicionar e remover itens da lista
-* Limpar campos de entrada automaticamente
-* Interface simples e intuitiva
-* Manipulação de elementos da página utilizando JavaScript
+## Tecnologias
 
-##  Tecnologias utilizadas
+- HTML5
+- CSS3 (design system com variáveis e tema escuro)
+- JavaScript (Vanilla JS)
 
-* HTML5
-* CSS3
-* JavaScript (Vanilla JS)
+## Como executar
 
-##  Como executar o projeto
+1. Clone este repositório.
+2. Abra o arquivo `index.html` no navegador.
 
-1. Clone este repositório:
+Não é necessário instalar dependências.
 
-2. Abra a pasta do projeto
-
-3. Execute o arquivo `index.html` no navegador
-
-Não é necessário instalar dependências adicionais.
-
-##  Estrutura do projeto
+## Estrutura do projeto
 
 ```
-📁 projeto
- ├── index.html
- ├── style.css
- ├── script.js
- └── assets/
+Site-de-estudo
+├── index.html              Página inicial com os modos e a evolução
+├── simulado.html           Simulado cronometrado
+├── simulado-rapido.html    Simulado de 10 questões
+├── modo-insano.html        Desafio cronometrado
+├── modo-estudo.html        Estudo por matéria
+├── provas-anteriores.html  Downloads de provas
+├── css
+│   └── style.css           Design system e estilos
+├── js
+│   ├── banco-questoes.js    Banco de questões e utilitários
+│   ├── quiz.js              Motor de quiz compartilhado
+│   ├── progresso.js         Armazenamento da evolução
+│   ├── evolucao.js          Painel de evolução da home
+│   └── tema.js              Alternância de tema claro/escuro
+└── provas                  Arquivos PDF das provas
 ```
 
-##  Objetivo do projeto
+## Como adicionar questões
 
-O projeto foi desenvolvido para praticar conceitos de:
+Edite `js/banco-questoes.js` e inclua um objeto no array `BANCO_QUESTOES`:
 
-* Manipulação do DOM
-* Estruturação de páginas web
-* Interação com usuário através de JavaScript
-* Organização de código frontend
+```js
+{
+    materia: "matematica",
+    pergunta: "Quanto é 25% de 200?",
+    opcoes: ["25", "40", "50", "75"],
+    correta: 2,
+    explicacao: "25% equivale a 1/4. Então 200 ÷ 4 = 50."
+}
+```
 
-##  Autor
+O campo `correta` é o índice da alternativa certa (começando em 0). As matérias disponíveis são `matematica`, `portugues`, `ciencias` e `geral`.
 
-Projeto desenvolvido por Luiz, como parte das atividades da faculdade UNINTER.
+## Autor
 
-##  Melhorias futuras
-
-* Sistema de login
-* Banco de dados para salvar conteúdos
-* Categorias de estudo
-* Interface mais moderna
-* Versão responsiva aprimorada
+Projeto desenvolvido por Luiz, como atividade da faculdade UNINTER.

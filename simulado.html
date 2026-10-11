@@ -2,46 +2,99 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulado</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/tema.js"></script>
 </head>
 <body>
 
-<header>
-    <a href="index.html" class="btn-sair">← Voltar</a>
-    <h1>Simulado</h1>
-    <p>Responda as questões e veja seu desempenho</p>
-</header>
+    <header class="hero hero--pagina">
+        <a href="index.html" class="btn--voltar">← Voltar</a>
+        <h1>📚 Simulado</h1>
+        <p>Responda as questões no tempo proposto e confira seu desempenho com a revisão completa.</p>
+    </header>
 
-<main>
+    <main>
 
-    <div class="escolha-simulado" id="escolhaSimulado">
-        <h2>Escolha a quantidade de questões</h2>
+        <section class="selecao" id="selecao">
+            <div class="secao-titulo">
+                <h2>Quantas questões você quer responder?</h2>
+                <p>Você terá cerca de um minuto por questão, sorteadas de todas as matérias.</p>
+            </div>
 
-        <button class="btn-qtd" data-qtd="40">40 Questões</button>
-        <button class="btn-qtd" data-qtd="80">80 Questões</button>
-        <button class="btn-qtd" data-qtd="100">100 Questões</button>
-    </div>
+            <div class="selecao__opcoes">
+                <button class="opcao-grande" data-qtd="10" type="button">
+                    <span>⚡</span>
+                    10 questões
+                    <small>10 minutos</small>
+                </button>
+                <button class="opcao-grande" data-qtd="20" type="button">
+                    <span>🎯</span>
+                    20 questões
+                    <small>20 minutos</small>
+                </button>
+                <button class="opcao-grande" data-qtd="30" type="button">
+                    <span>🏆</span>
+                    30 questões
+                    <small>30 minutos</small>
+                </button>
+            </div>
+        </section>
 
-    <div class="card card-simulado" id="quiz-container" style="display: none;">
-        
-        <p id="tempo" class="tempo">⏱️ Tempo: 00:00</p>
+        <section class="quiz oculto" id="quiz">
+            <div class="quiz__topo">
+                <span class="quiz__contador" id="contador"></span>
+                <span class="tempo" id="tempo">⏱️ 00:00</span>
+            </div>
 
-        <div class="progresso-container">
-            <div id="barraProgresso"></div>
-        </div>
+            <div class="barra-progresso">
+                <div class="barra-progresso__preenchida" id="barra"></div>
+            </div>
 
-        <p id="contadorQuestoes"></p>
+            <h2 class="quiz__pergunta" id="pergunta"></h2>
+            <div class="opcoes" id="opcoes"></div>
+            <div class="feedback" id="feedback"></div>
 
-        <h2 id="pergunta"></h2>
+            <div class="quiz__rodape">
+                <button class="btn btn--primario" id="proximo" type="button" disabled>Próxima</button>
+            </div>
+        </section>
 
-        <div id="opcoes"></div> 
+        <section class="quiz resultado oculto" id="resultado"></section>
 
-        <button id="proximo">Próxima</button>
-    </div>
+    </main>
 
-</main>
+    <footer>
+        <p>Projeto acadêmico desenvolvido em HTML, CSS e JavaScript — UNINTER</p>
+    </footer>
 
-<script src="js/simulado.js"></script>
+    <script src="js/banco-questoes.js"></script>
+    <script src="js/progresso.js"></script>
+    <script src="js/quiz.js"></script>
+    <script>
+        const selecao = document.getElementById("selecao");
+        let quantidadeEscolhida = 0;
+
+        function voltarSelecao() {
+            selecao.classList.remove("oculto");
+        }
+
+        const quiz = criarQuiz({
+            feedbackImediato: false,
+            permitirRefazer: true,
+            aoRefazer: () => sortearQuestoes(quantidadeEscolhida),
+            aoSelecionar: voltarSelecao
+        });
+
+        document.querySelectorAll("[data-qtd]").forEach(botao => {
+            botao.addEventListener("click", () => {
+                quantidadeEscolhida = Math.min(Number(botao.dataset.qtd), BANCO_QUESTOES.length);
+                selecao.classList.add("oculto");
+                const questoes = sortearQuestoes(quantidadeEscolhida);
+                quiz.iniciar(questoes, questoes.length * 60);
+            });
+        });
+    </script>
 </body>
 </html>

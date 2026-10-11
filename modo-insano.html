@@ -2,40 +2,62 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modo Insano</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/tema.js"></script>
 </head>
 <body>
 
-<header>
-    <h1>🔥 Modo Insano</h1>
-    <p>Sem pausas. Sem refazer. Um erro pode custar tudo.</p>
-</header>
+    <header class="hero hero--pagina">
+        <a href="index.html" class="btn--voltar">← Sair</a>
+        <h1>🔥 Modo Insano</h1>
+        <p>Tempo apertado, sem voltar atrás. Só os fortes chegam ao fim.</p>
+    </header>
 
-<main class="simulado-rapido">
+    <main>
 
-    <div id="tempo"></div>
+        <section class="quiz" id="quiz">
+            <div class="quiz__topo">
+                <span class="quiz__contador" id="contador"></span>
+                <span class="tempo" id="tempo">⏱️ 00:00</span>
+            </div>
 
-    <div id="contadorQuestoes"></div>
+            <div class="barra-progresso">
+                <div class="barra-progresso__preenchida" id="barra"></div>
+            </div>
 
-    <div class="barra-progresso">
-        <div id="barraProgresso"></div>
-    </div>
+            <h2 class="quiz__pergunta" id="pergunta"></h2>
+            <div class="opcoes" id="opcoes"></div>
+            <div class="feedback" id="feedback"></div>
 
-    <h2 id="pergunta"></h2>
+            <div class="quiz__rodape">
+                <button class="btn btn--primario" id="proximo" type="button" disabled>Próxima</button>
+            </div>
+        </section>
 
-    <div id="opcoes"></div>
+        <section class="quiz resultado oculto" id="resultado"></section>
 
-    <button id="proximo" disabled>Próxima</button>
+    </main>
 
-<button id="voltarHome" style="display:none" onclick="window.location.href='index.html'">
-    ⬅️ Voltar para Home
-</button>
+    <footer>
+        <p>Projeto acadêmico desenvolvido em HTML, CSS e JavaScript — UNINTER</p>
+    </footer>
 
+    <script src="js/banco-questoes.js"></script>
+    <script src="js/progresso.js"></script>
+    <script src="js/quiz.js"></script>
+    <script>
+        const TEMPO_POR_QUESTAO = 12;
+        const questoes = embaralhar(BANCO_QUESTOES);
 
+        const quiz = criarQuiz({
+            feedbackImediato: false,
+            permitirRefazer: true,
+            aoRefazer: () => embaralhar(BANCO_QUESTOES)
+        });
 
-</main>
-
-<script src="js/modo-insano.js"></script>
+        quiz.iniciar(questoes, questoes.length * TEMPO_POR_QUESTAO);
+    </script>
 </body>
 </html>
